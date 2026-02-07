@@ -11,6 +11,14 @@ toCartesien(svgHauteur, svgLargeur) {
         x : this.x - svgLargeur/2,
          y : svgHauteur/2 -this.y};
     
-}}
+}
 
+getX(){
+    return this.x;
+}
+
+getY(){
+    return this.y;
+}
+}
 export {Coordinates};
