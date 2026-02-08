@@ -1,6 +1,6 @@
 import {Coordinates} from "./Coordinates.js";
 
-class BoudingBox
+class BoundingBox
 {
     constructor(coinHG, coinBD)
     {
@@ -16,13 +16,12 @@ class BoudingBox
         };
     }
 
-    largeur(){
-        return (this.coinBD.x -this.coinHG.x)
-    }
-    hauteur(){
-        return (this.coinHG.y -this.coinBD.y)
+    dimension(){
+        const { x: xBD, y: yBD } = this.coinBD.coordonnee();
+        const { x: xHG, y: yHG } = this.coinHG.coordonnee();
+        return {largeur: xBD - xHG, hauteur: yBD - yHG};
     }
 }
 
 
-export {BoudingBox};
+export {BoundingBox};

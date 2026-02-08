@@ -1,3 +1,5 @@
+import { getSvgDimensions } from "../config.js";
+
 class Coordinates {
   constructor(x, y) {
     this.x = x;
@@ -5,20 +7,25 @@ class Coordinates {
   }
 
 // Renvoyer les coordonnées cartésiennes 
-toCartesien(svgHauteur, svgLargeur) {
-
+toCartesien() {
+  const {svgHauteur, svgLargeur} = getSvgDimensions();
     return {
         x : this.x - svgLargeur/2,
          y : svgHauteur/2 -this.y};
     
 }
 
-getX(){
-    return this.x;
+toSVG() {
+    const { svgHauteur, svgLargeur } = getSvgDimensions();
+    return {
+        x: this.x + svgLargeur / 2,
+        y: svgHauteur / 2 - this.y
+    };
 }
 
-getY(){
-    return this.y;
+
+coordonnee(){
+  return {x: this.x, y: this.y};
 }
 }
 export {Coordinates};
